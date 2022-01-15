@@ -56,11 +56,7 @@
         "name": "[variables('appServicePlanName')]",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "B1",
-          "tier": "Basic",
-          "size": "B1",
-          "family": "B",
-          "capacity": 1
+          "name": "F1"
         },
         "kind": "linux",
         "properties": {
