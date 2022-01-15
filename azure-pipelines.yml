@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  NUC: NUC
 
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
