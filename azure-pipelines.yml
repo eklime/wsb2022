@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: NUC
+  name: NUC
 
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
