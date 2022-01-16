@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: NUC
+  name: Win11
 
 steps:
 - task: AzureResourceManagerTemplateDeployment@3
