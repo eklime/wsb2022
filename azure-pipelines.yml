@@ -5,11 +5,20 @@
 
 trigger:
 - main
+variables:
+  time: ''
 
 pool:
   name: Win11
 
 steps:
+- task: PowerShell@2
+  inputs:
+    targetType: inline
+    script: |
+      $date=$(Get-Date -Format 'yyyyMMddhhmm');
+      Write-Host "##vso[task.setvariable variable=time]$date"
+
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
@@ -22,4 +31,5 @@ steps:
     csmFileLink: 'https://raw.githubusercontent.com/eklime/wsb2022/main/CreateWebApp/azuredeploy.json'
     overrideParameters: '-projectName EmilWSB'
     deploymentMode: 'Incremental'
-    deploymentName: 'DeployPipelineTemplate'
+    deploymentName: 'DeployPipelineTemplate_$(time)'
+
